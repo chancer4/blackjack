@@ -1,0 +1,90 @@
+.blackjack{
+	background: green;
+	border-radius: 15px;
+	width: 75%;
+	text-align: center;
+	margin: .5% 10%
+}
+
+.win-loss{
+	text-align: center;
+	background-color: red;
+	width: 10%;
+	margin: auto;
+}
+
+.card-empty{
+	height: 15px;
+	width: 7px;
+	background-image: url(http://conjuringarts.org/wp-content/uploads/2010/11/Erdnase-Acorn-Green-Back.jpg);
+
+}
+
+.buttons{
+	text-align: center;
+	padding: 1% 25% 1%
+	}
+
+.draw-button{
+	
+	cursor: pointer;
+
+}
+
+.hit-button{
+	
+	cursor: pointer;
+
+}
+
+.stand-button{
+	
+	cursor: pointer;
+
+}
+
+.dealer-hand{
+	padding: 1% 25% 1%;
+	position: relative;
+
+	
+}
+.dealer-total-wrapper{
+	text-align: left;
+	position: absolute;
+}
+
+.dealer-card-wrapper{
+	margin: 2% 10%;
+	padding: 1% 25% 1%;
+	display: inline-block;
+}
+.player-card-wrapper{
+	margin: 2% 10%;
+	padding: 1% 0% 1%;
+	display: inline-block;
+
+}
+.player-hand{
+	padding: 1% 25% 1%;
+	position: relative;
+
+}
+
+.player-card{
+	float: left;
+	height: 60px;
+	width: 30px;
+
+}
+.dealer-card{
+	float: left;
+	height: 60px;
+	width: 30px;
+}
+.player-total-wrapper{
+	text-align: left;
+	position: absolute;
+	top: 10px;
+	left: 1px;
+}

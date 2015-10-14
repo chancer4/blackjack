@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="scripts.js" type="text/javascript"></script>
+</head>
+<body>
+
+	<div class= "blackjack">
+		<div class="win-loss">Wins: <div class="win-count">0</div></div>
+		
+		<div class="dealer-hand">
+			<div class="dealer-total-wrapper">Dealer Total<div class="dealer-total">0</div></div>
+			<div class="dealer-card-wrapper">
+				<div class="dealer-card one" class="card-empty">-</div>
+				<div class="dealer-card two" class="card-empty">-</div>
+				<div class="dealer-card three" class="card-empty">-</div>
+				<div class="dealer-card four" class="card-empty">-</div>
+				<div class="dealer-card five" class="card-empty">-</div>
+				<div class="dealer-card six" class="card-empty">-</div>
+			</div>
+		</div>
+
+		<div class="player-hand">
+			<div class="player-total-wrapper">Player Total<div class="player-total">0</div></div>
+			<div class="player-card-wrapper">
+				<div class="player-card one" class="card-empty">-</div>
+				<div class="player-card two" class="card-empty">-</div>
+				<div class="player-card three" class="card-empty">-</div>
+				<div class="player-card four" class="card-empty">-</div>
+				<div class="player-card five" class="card-empty">-</div>
+				<div class="player-card six" class="card-empty">-</div>
+			</div>
+		</div>		
+
+		
+		<div class= "buttons">
+
+			<button class="draw-button" onclick="deal()">Deal</button>
+
+			<button class="hit-button" onclick="hit()">Hit</button>
+
+			<button class="stand-button" onclick="stand()">Stand</button>
+
+		</div>
+
+		<div class="message"></div>
+	</div>
+</body>
+</html>
