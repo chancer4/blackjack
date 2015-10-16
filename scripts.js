@@ -1,5 +1,13 @@
+var placeInDeck = 0;
+var playerTotalCards = 2;
+var dealerTotalCards = 2;
+var playerHand;
+var dealerHand;
+var deck =[];
 
-function deal(){
+
+
+function shuffleDeck(){
 	var deck =[];
 	//fill deck in order (for now)
 	//suit
@@ -19,20 +27,131 @@ function deal(){
 			deck.push(i + suit);
 		}
 	}
-	
+		// console.log(deck);
 
-	var numberOfTimesToShuffle = Math.floor( Math.random() * 500 + 500);
+
+	var numberOfTimesToShuffle = 2000;
 
 	//shuffle the deck
-	for(i = 0; i < numberOfTimesToShuffle; i++)
+	for(i = 0; i < numberOfTimesToShuffle; i++){
 		//pick 2 random cards from th deck. and switch them
 		var card1 = Math.floor(Math.random() * 52);
 		var card2 = Math.floor(Math.random() * 52);
 		var temp = deck[card2];
 		deck[card2] = deck[card1];
 		deck[card1] = temp;
+	}
+	// console.log(deck);
+	return deck;
+}
 
-	console.log(deck[card2]);
-	console.log(deck[card1]);
+function placeCard(card, who, slot){
+	var currId = who + '-card-' + slot;
+	document.getElementById(currId).className = "card"
+	document.getElementById(currId).innerHTML = card;
+}
+
+function bust(who){
+	if(who === "player"){
+		document.getElementById('message').innerHTML = 'bust you lose';
+	}else{
+		document.getElementById('message').innerHTML = 'dealer bust you win';
+	}
+
+}
+
+function calculateTotal(hand, who){
+	var total = 0;
+	for(i=0; i<hand.length; i++){
+		var cardValue = Number(hand[i].slice(0, -1));
+		total = total + cardValue;
+	}
+	var idWhoToGet = who + '-total';
+	document.getElementById(idWhoToGet).innerHTML = total;
+
+	//check for bust
+	if(total > 21){
+		bust(who);
+	}
+	return total;
+}
+	
+function deal(){
+	reset()
+	//shuffled deack from finction shuffleDeck
+	deck = shuffleDeck();
+	playerHand = [ deck[0], deck[2] ];
+	dealerHand = [ deck[1], deck[3] ];
+	placeInDeck = 4;
+
+	placeCard(playerHand[0], 'player', 'one');
+	placeCard(dealerHand[0], 'dealer', 'one');
+	placeCard(playerHand[1], 'player', 'two');
+	placeCard(dealerHand[1], 'dealer', 'two');
+
+	calculateTotal(playerHand, 'player');
+	calculateTotal(dealerHand, 'dealer');
+
+	document.getElementById("message").innerHTML=""
+}
+
+function hit(){
+	var slot;
+	if(playerTotalCards === 2){ slot = "three";}
+	else if(playerTotalCards === 3){ slot = "four";}
+	else if(playerTotalCards === 4){ slot = "five";} 
+	else if(playerTotalCards === 5){ slot = "six";}
+
+	placeCard(deck[placeInDeck], 'player',slot);
+	playerHand.push(deck[placeInDeck]);
+	playerTotalCards++;
+	placeInDeck++;
+	calculateTotal(playerHand, 'player');
+
+}
+
+function checkWin(){
+	if(calculateTotal(playerHand, 'player') < 22 || calculateTotal(dealerHand, 'dealer') < 22) {
+
+	}		
+	}
+
+
+function reset(){
+
+	deck = [];
+	placeInDeck = 0;
+	placeInDeck = 0;
+	playerTotalCards = 2;
+	dealerTotalCards = 2;
+	playerHand = [];
+	dealerHand = [];
+
+
+	var cards = document.getElementsByClassName('card');
+	for(i=0; i<cards.length; i++){
+		cards[i].innerHTML = ' - ';
+		cards[i].className = 'card empty';
+	}
+}
+
+function stand(){
+	// var dealerHas = calculateTotal
+	console.log(dealerHand)
+	var dealerHas = Number(document.getElementById('dealer-total').innerHTML);
+	var slot;
+	while(dealerHas < 17){
+	if(dealerTotalCards === 2){ slot = "three";}
+	else if(dealerTotalCards === 3){ slot = "four";}
+	else if(dealerTotalCards === 4){ slot = "five";} 
+	else if(dealerTotalCards === 5){ slot = "six";}
+	placeCard(deck[placeInDeck], 'dealer', slot);
+	dealerHand.push(deck[placeInDeck]);
+	dealerHas = calculateTotal(dealerHand, 'dealer');
+	calculateTotal(dealerHand, 'dealer');
+	placeInDeck++;
+	dealerTotalCards++;
+
+	}
 
 }

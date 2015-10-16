@@ -1,90 +1,87 @@
-.blackjack{
+#the-table{
 	background: green;
-	border-radius: 15px;
-	width: 75%;
-	text-align: center;
-	margin: .5% 10%
-}
-
-.win-loss{
-	text-align: center;
-	background-color: red;
-	width: 10%;
+	max-width: 600px;
+	border-radius: 10px;
 	margin: auto;
+	margin-top: 30px;
 }
 
-.card-empty{
-	height: 15px;
-	width: 7px;
-	background-image: url(http://conjuringarts.org/wp-content/uploads/2010/11/Erdnase-Acorn-Green-Back.jpg);
-
-}
-
-.buttons{
+#win-loss{
+	background-color: red;
+	width: 15%;
+	margin: auto;
+	color: white;
 	text-align: center;
-	padding: 1% 25% 1%
-	}
-
-.draw-button{
-	
-	cursor: pointer;
-
 }
 
-.hit-button{
-	
-	cursor: pointer;
-
+#win-count{
+	display: inline;
 }
 
-.stand-button{
-	
-	cursor: pointer;
-
-}
-
-.dealer-hand{
-	padding: 1% 25% 1%;
-	position: relative;
-
-	
-}
-.dealer-total-wrapper{
-	text-align: left;
-	position: absolute;
-}
-
-.dealer-card-wrapper{
-	margin: 2% 10%;
-	padding: 1% 25% 1%;
-	display: inline-block;
-}
-.player-card-wrapper{
-	margin: 2% 10%;
-	padding: 1% 0% 1%;
-	display: inline-block;
-
-}
-.player-hand{
-	padding: 1% 25% 1%;
-	position: relative;
-
-}
-
-.player-card{
-	float: left;
+.card{
+	color: black;
+	background: white;
 	height: 60px;
 	width: 30px;
-
+	padding: 10px;
+	margin: 10px;
 }
-.dealer-card{
+
+.card.empty{
+	background: gray;
+	border: dashed 1px black;
+}
+
+#dealer-hand, #players-hand{
+	overflow: hidden;
+}
+
+#dealer-hand .card{
+	float: left;
+}
+
+#players-hand .card{
+	float: left;
+}
+
+#dealer-total-wrapper, #player-total-wrapper{
 	float: left;
 	height: 60px;
-	width: 30px;
+	line-height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	margin: 10px;
+	padding: 10px;
+	color: white;
+	font-size: 22px;
 }
-.player-total-wrapper{
-	text-align: left;
-	position: absolute;
-	top: 10px;
-	left: 1px;
+
+#dealer-total, #player-total{
+
+}
+
+#play-buttons{
+	overflow: hidden;
+}
+
+#draw-button{
+	margin-left: 10%;
+}
+
+#draw-button, #hit-button, #stand-button {
+	width: 20%;
+	float: left;
+	text-align: center;
+	background-color: #0f0f0f;
+	color: white;
+	margin-top: 20px;
+	margin-right: 10%;
+	margin-bottom: 10px;
+	/*margin: 20px 10% 10px 0px;*/
+}
+
+#message{
+	color: white;
+	font-size: 20px;
+	text-align: center;
 }
